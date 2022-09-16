@@ -80,6 +80,11 @@ public class Spielkonsole extends JPanel {
 		ziffernfolge = new VerketteteListe();
 		iterator_ziffernfolge = ziffernfolge.erzeuge_Iterator();
 	}
+	
+	
+	public void sichtbar(boolean isSichtbar) {         
+		this.setVisible(isSichtbar);         
+	}
 
 	/** Die nächste Sollziffer wird für die nächste Überprüfung bereitgestellt. */
 	public void naechste_Sollziffer() {

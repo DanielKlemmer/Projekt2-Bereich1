@@ -27,8 +27,8 @@ public class Bestenliste extends JPanel{
 	private BestenlisteZeile[] zeilen = new BestenlisteZeile[10];
 	
 	public Bestenliste(Steuerung s) {	
+		this.setSize(300, 300);
 		this.add(namenseingabe);
-		namenseingabe.setVisible(false);
 		this.setLayout(null);
 		namenseingabe.setBounds(0, 100, 270, 33);
 		
@@ -49,7 +49,7 @@ public class Bestenliste extends JPanel{
 		});
 		namenseingabe.add(eingabeButton);
 		
-		steuerung = s; 	
+		steuerung = s;
 		this.setVisible(false);
 	}
 
@@ -114,13 +114,14 @@ public class Bestenliste extends JPanel{
 		neuesSpiel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				liste.remove(neuesSpiel);
 				neues_Spiel(e);
 			}
 		});
 		liste.add(neuesSpiel);
 		this.add(liste);
-		
-		liste.setBounds(10, 10, (i*25), 240);
+	
+		liste.setBounds(10, 10, 300, (i*25));
 		liste.setVisible(true);
 	}
 	

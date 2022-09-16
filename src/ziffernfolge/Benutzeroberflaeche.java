@@ -44,7 +44,7 @@ public class Benutzeroberflaeche extends JFrame {
 	public Benutzeroberflaeche() {
 		setTitle("Ziffernfolge");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 2 * abstand + Spielkonsole.breite + 16, 2 * abstand + Spielkonsole.hoehe + 36);
+		setBounds(100, 100, 300, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -54,6 +54,7 @@ public class Benutzeroberflaeche extends JFrame {
 		steuerung.melde_an(bestenliste);
 		spielkonsole.setLocation(abstand, abstand);
 		contentPane.add(spielkonsole);
+		bestenliste.setLocation(abstand, abstand);
 		contentPane.add(bestenliste);
 	}
 }

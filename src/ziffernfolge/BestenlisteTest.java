@@ -7,18 +7,16 @@ Last changed: 02.08.2022
 
 package ziffernfolge;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+@SuppressWarnings("serial")
 public class BestenlisteTest extends JFrame {
 
 	private JPanel contentPane;
@@ -60,7 +58,7 @@ public class BestenlisteTest extends JFrame {
 		
 		Steuerung steuerung = new Steuerung(spielkonsole);
 		Bestenliste bestenliste = new Bestenliste(steuerung);
-		bestenliste.setBounds(5, 5, 397, 376);
+		bestenliste.setLocation(5, 5);
 		steuerung.melde_an(bestenliste);
 		
 		bestenliste.neues_Ergebnis(10, 20);
@@ -90,6 +88,7 @@ public class BestenlisteTest extends JFrame {
 		showName.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				spielkonsole.sichtbar(false);
 				bestenliste.sichtbar(true);
 				bestenliste.aktiviere_Namenseingabe();
 			}
