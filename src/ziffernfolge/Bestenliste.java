@@ -121,7 +121,7 @@ public class Bestenliste extends JPanel{
 		liste.add(neuesSpiel);
 		this.add(liste);
 	
-		liste.setBounds(10, 10, 300, (i*25));
+		liste.setBounds(10, 10, 300, ((i+1)*20));
 		liste.setVisible(true);
 	}
 	
