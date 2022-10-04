@@ -23,7 +23,7 @@ public class BestenlisteZeile extends JPanel{
 		this.setLayout(null);
 		this.setVisible(false);
 		this.setBounds(x, y, b, l);
-		this.setLayout(new GridLayout(0, 3, 0, 0));		
+		this.setLayout(new GridLayout(1, 3, 0, 0));		
 		this.add(nameLabel);
 		this.add(zeitLabel);
 		this.add(zahlenLabel);

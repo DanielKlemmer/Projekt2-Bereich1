@@ -13,12 +13,14 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
+import java.awt.GridLayout;
 
 @SuppressWarnings("serial")
 public class Bestenliste extends JPanel{
 	
 	private JPanel liste = new JPanel();
 	private JPanel namenseingabe = new JPanel();
+	private JPanel listeHeader = new JPanel();
 	private Ergebnis ergebnis;
 	private JTextField nameTextfeld = new JTextField();
 	
@@ -48,6 +50,23 @@ public class Bestenliste extends JPanel{
 			}
 		});
 		namenseingabe.add(eingabeButton);
+		namenseingabe.setVisible(false);
+		
+		// Header 
+		listeHeader.setBounds(0, 0, 200, 20);
+		listeHeader.setLayout(new GridLayout(1, 3, 0, 0));
+		
+		JLabel nameHeader = new JLabel("Name");
+		listeHeader.add(nameHeader);
+		
+		JLabel zeitHeader = new JLabel("Dauer");
+		listeHeader.add(zeitHeader);
+		
+		JLabel punkteHeader = new JLabel("Punkte");
+		listeHeader.add(punkteHeader);
+		
+		liste.add(listeHeader);
+		listeHeader.setVisible(false);
 		
 		steuerung = s;
 		this.setVisible(false);
@@ -102,15 +121,15 @@ public class Bestenliste extends JPanel{
 		ergebnisliste.start();
 		int i = 0;
 		while(!ergebnisliste.ende() && i < 10) {
-			zeilen[i] = new BestenlisteZeile(0, (i*20), 200, 20);
+			zeilen[i] = new BestenlisteZeile(0, ((i+1)*20), 200, 20);
 			zeilen[i].zeige_an(ergebnisliste.aktuelles_Element());
 			liste.add(zeilen[i]);
 			ergebnisliste.weiter();
 			i++;
 		}
-		
+
 		JButton neuesSpiel = new JButton("neues Spiel");
-		neuesSpiel.setBounds(50, (i*20), 100, 20);
+		neuesSpiel.setBounds(50, ((i+1)*20), 100, 20);
 		neuesSpiel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -121,7 +140,8 @@ public class Bestenliste extends JPanel{
 		liste.add(neuesSpiel);
 		this.add(liste);
 	
-		liste.setBounds(10, 10, 300, ((i+1)*20));
+		liste.setBounds(10, 10, 300, ((i+2)*20));
+		listeHeader.setVisible(true);
 		liste.setVisible(true);
 	}
 	
