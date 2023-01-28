@@ -48,24 +48,26 @@ public class BestenlisteTest extends JFrame {
 		setContentPane(contentPane);
 		
 		Spielkonsole spielkonsole = new Spielkonsole();
-		int abstand = 10;
-		int x = 2 * abstand + Spielkonsole.breite + 16;
-		int y = 2 * abstand + Spielkonsole.hoehe + 36;
-		System.out.println(x);
-		System.out.println(y);
 		
-		setBounds(100, 100, 685, 425);
+		setBounds(100, 100, 685, 500);
 		
 		Steuerung steuerung = new Steuerung(spielkonsole);
-		Bestenliste bestenliste = new Bestenliste(steuerung);
-		bestenliste.setLocation(5, 5);
-		steuerung.melde_an(bestenliste);
+		Bestenliste bestenlisteListe = new Bestenliste(steuerung);
+		bestenlisteListe.setSize(300, 300);
+		bestenlisteListe.setLocation(5, 5);
 		
-		bestenliste.neues_Ergebnis(10, 20);
+		Bestenliste bestenlisteName = new Bestenliste(steuerung);
+		bestenlisteName.setBounds(5, 270, 300, 200);
+			
+		
+		steuerung.melde_an(bestenlisteName);
+		
+		bestenlisteName.neues_Ergebnis(10, 20);
 		
 		contentPane.setLayout(null);
 		
-		contentPane.add(bestenliste);
+		contentPane.add(bestenlisteName);	
+		contentPane.add(bestenlisteListe);
 		
 		JButton visibleBtn = new JButton("Show Window");
 		visibleBtn.addMouseListener(new MouseAdapter() {
@@ -73,11 +75,13 @@ public class BestenlisteTest extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				if (v) {
 					v = false;
-					bestenliste.sichtbar(v);
+					bestenlisteListe.sichtbar(v);
+					bestenlisteName.sichtbar(v);
 				}
 				else {
 					v = true;
-					bestenliste.sichtbar(v);
+					bestenlisteListe.sichtbar(v);
+					bestenlisteName.sichtbar(v);
 				}
 			}
 		});
@@ -89,8 +93,8 @@ public class BestenlisteTest extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				spielkonsole.sichtbar(false);
-				bestenliste.sichtbar(true);
-				bestenliste.aktiviere_Namenseingabe();
+				bestenlisteName.sichtbar(true);
+				bestenlisteName.aktiviere_Namenseingabe();
 			}
 		});
 		showName.setBounds(491, 116, 116, 23);
@@ -100,8 +104,8 @@ public class BestenlisteTest extends JFrame {
 		showListe.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				bestenliste.sichtbar(true);
-				bestenliste.zeige_Liste_an();
+				bestenlisteListe.sichtbar(true);
+				bestenlisteListe.zeige_Liste_an();
 			}
 		});
 		showListe.setBounds(491, 174, 116, 23);

@@ -59,7 +59,23 @@ public class Ergebnisliste {
 	 * @return Ergebnis
 	 */
 	public Ergebnis aktuelles_Element() {
-		Ergebnis erg = new Ergebnis("Daniel", 13333338, 13333338);
+		Ergebnis erg;
+		switch (i) {
+		case 1: {
+			erg = new Ergebnis("Alex", 123324, 11232);
+			break; 
+		}
+		case 2: {
+			erg = new Ergebnis("Daniel", 13333338, 13333338);
+			break; 
+		}
+		case 3: {
+			erg = new Ergebnis("Lukas", 1, 1);
+			break; 
+		}
+		default:
+			erg = new Ergebnis("Hanspeter", 213, 212); 
+		}
 		return erg;
 	}
 	

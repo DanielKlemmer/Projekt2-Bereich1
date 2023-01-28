@@ -24,7 +24,7 @@ public class Steuerung {
 	 * als nächstes die Bestenliste angezeigt werden.
 	 */
 	public void name_eingegeben() {
-		// todo...
+		System.out.println("Name Eingegeben an Steuerung geschickt!");
 	}
 	
 	/**
